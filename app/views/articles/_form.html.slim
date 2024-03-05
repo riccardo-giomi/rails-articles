@@ -1,0 +1,54 @@
+- # locals: (article:)
+
+div class="border-2 border-black dark:border-slate-600 p-2 mt-2"
+  = form_with(model: article, class: 'contents') do |form|
+    - if article.errors.any?
+      div id="errors-explanation"
+        - errors_count = pluralize(article.errors.count, 'error')
+        h2 = "#{errors_count} prohibited this article from being saved:"
+        ul class="list-disc"
+          - article.errors.each do |error|
+            li = error.full_message
+
+    div class="my-3"
+      = form.label :title
+      = form.text_field :title
+      - if error = article.errors[:title]&.first
+        p class="field-error-explanation" = error.capitalize
+
+
+    div class="my-3"
+      = form.label :abstract
+      = form.text_area :abstract
+      - if error = article.errors[:abstract]&.first
+        p class="field-error-explanation" = error.capitalize
+
+
+    div class="my-3"
+      = form.label :content
+      = form.text_area :content
+      - if error = article.errors[:content]&.first
+        p class="field-error-explanation" = error.capitalize
+
+
+    div class="my-3"
+      = form.label :image
+      / set is_required: to true for files with attached: true validations
+      = render 'application/form_file', form:, field: 'image', file: article.persisted_image, is_required: false
+
+
+    div class="my-3"
+      = form.label :image_caption
+      = form.text_field :image_caption
+      - if error = article.errors[:image_caption]&.first
+        p class="field-error-explanation" = error.capitalize
+
+
+    div class="my-3"
+      = form.label :author
+      = form.text_field :author
+      - if error = article.errors[:author]&.first
+        p class="field-error-explanation" = error.capitalize
+
+    div class="pt-3"
+      = form.submit class: 'btn-submit'

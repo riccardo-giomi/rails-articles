@@ -1,0 +1,13 @@
+- content_title = 'Edit article'
+- content_for :page_title, "Articles | #{content_title}"
+
+div class="w-full"
+  div class="header lg:flex items-center gap-1"
+    div class="lg:flex-grow"
+      h1 class="text-left" = content_title
+    div class="lg:flex-shrink"
+      = link_to 'Back to articles', articles_path, class: 'mb-2 lg:m-0 button', title: 'Back to articles'
+    div class="lg:flex-shrink"
+      = link_to 'Show this article', @article, class: 'button'
+
+  = render 'form', article: @article
