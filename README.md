@@ -33,6 +33,14 @@ bundle
 bin/rails db:setup
 ```
 
+There's an example Article that can be seeded in the database if you want:
+``` bash
+bin/rails db:seed
+```
+It inclused an example image that you can find in `public/example.image.jpg`,
+generated with [Lorem Picsum](https://picsum.photos).
+
+
 You can run the specs with:
 ``` bash
 bin/dev
@@ -43,4 +51,4 @@ And start the server with:
 bin/dev
 ```
 
-The application will be available to a browser at `http://localhost:3000`
+The application will be available to a browser at `http://localhost:3000`.
