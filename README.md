@@ -1,24 +1,46 @@
-# README
+# A simple test for my Rails 7.1 quickstart template
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a Ruby on Rails application with a simple CRUD interface for an
+article-like model.
 
-Things you may want to cover:
+It was created using the "base" template from [my Rails quickstart
+repository](https://github.com/riccardo-giomi/rails-7.1-quickstart), and the
+expanded scaffolding generators it provides.
 
-* Ruby version
+It is a simple application intended to try out and possibly showcase the
+features of that quickstart project.
 
-* System dependencies
+## Prerequisites
 
-* Configuration
+These are the Ruby and Bundler versions the application was bundled with, more
+recent versions should also work:
 
-* Database creation
+- Ruby 3.2.2
+- Bundler 2.4.22
 
-* Database initialization
+You will also need *[SQLite3](https://www.sqlite.org/)* and *libvips* (see
+[here](https://github.com/libvips/ruby-vips) for more information).
 
-* How to run the test suite
+## Installation
 
-* Services (job queues, cache servers, search engines, etc.)
+The following commands will donwload the app's code, download or update the
+required Ruby Gems, and prepare a database for the application.
 
-* Deployment instructions
+``` bash
+git clone https://github.com/riccardo-giomi/articles
+cd articles
+bundle
+bin/rails db:setup
+```
 
-* ...
+You can run the specs with:
+``` bash
+bin/dev
+```
+
+And start the server with:
+``` bash
+bin/dev
+```
+
+The application will be available to a browser at `http://localhost:3000`
