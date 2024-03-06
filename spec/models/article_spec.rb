@@ -7,7 +7,7 @@ RSpec.describe Article do
     specify('title') { expect(article.title).to eq('Title Value') }
     specify('abstract') { expect(article.abstract).to eq('Abstract Value') }
     specify('content') { expect(article.content).to eq('Content Value') }
-    specify('image_caption') { expect(article.image_caption).to eq('Image_caption Value') }
+    specify('image_caption') { expect(article.image_caption).to eq('Image caption Value') }
     specify('author') { expect(article.author).to eq('Author Value') }
   end
 
