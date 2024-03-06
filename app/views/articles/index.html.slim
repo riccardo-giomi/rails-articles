@@ -9,4 +9,4 @@ div class="w-full"
       = link_to 'New article', new_article_path, class: 'btn-action', title: 'New article'
 
   div id="articles"
-    = render @articles, controls: [:show, :edit]
+    = render partial: 'summary', collection: @articles, as: :article
