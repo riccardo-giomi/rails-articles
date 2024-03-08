@@ -4,7 +4,15 @@ RSpec.describe Article do
   let(:article) { build(:article) }
 
   describe '.attributes' do
-    specify('title') { expect(article.title).to eq('Title Value') }
+    describe 'title' do
+      specify('title') { expect(article.title).to eq('Title Value') }
+
+      it 'is required' do
+        article.title = nil
+        expect(article).not_to be_valid
+      end
+    end
+
     specify('abstract') { expect(article.abstract).to eq('Abstract Value') }
     specify('content') { expect(article.content).to eq('Content Value') }
     specify('image_caption') { expect(article.image_caption).to eq('Image caption Value') }
