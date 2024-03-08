@@ -7,7 +7,5 @@ div class="w-full"
       h1 class="text-left" = content_title
     div class="lg:flex-shrink"
       = link_to 'Back to articles', articles_path, class: 'mb-2 lg:m-0 button', title: 'Back to articles'
-    div class="lg:flex-shrink"
-      = link_to 'Show this article', @article, class: 'button'
 
-  = render 'form', article: @article
+  = render 'form', article: @article, controls: [:show, :destroy]
