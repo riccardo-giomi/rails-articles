@@ -1,32 +1,27 @@
 - # locals: (article:, controls: [])
 
 - content = capture do
-  div class="text-2xl font-bold"
-    = link_to model_title(article, 'title'), article
-
-  - if article.abstract.present?
-    div class="my-3 italic"
-      = article.abstract
+  div class="text-3xl font-bold"
+    = article.title
 
   div class="my-3"
-    span class="label" Content
+    = article_date_and_author(article)
+
+  hr
+
+  div class="my-3 italic"
+    = article.abstract
+
+  hr
+
+  div class="my-3"
+    div class="w-fit mx-auto lg:mx-0"
+      = render 'application/image', image: article.image
+    div class="mt-1 italic text-sm"
+      = article.image_caption
+
+  div class="my-3"
     = model_value(article, 'content')
-
-  div class="my-3"
-    span class="label" Image
-    - if article.image.attached?
-      div class="w-fit mx-auto lg:mx-0"
-        = render 'application/image', image: article.image
-    - else
-      span class="italic font-medium" There is no image
-
-  div class="my-3"
-    span class="label" Image caption
-    = model_value(article, 'image_caption')
-
-  div class="my-3"
-    span class="label" Author
-    = model_value(article, 'author')
 
 div id="#{dom_id article}" class="border-2 border-black dark:border-slate-600 p-2 mt-2"
   - if controls.empty?
