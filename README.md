@@ -43,7 +43,7 @@ generated with [Lorem Picsum](https://picsum.photos).
 
 You can run the specs with:
 ``` bash
-bin/dev
+bundle exec rspec
 ```
 
 And start the server with:
