@@ -3,6 +3,10 @@
 # Model class from generator.
 class Article < ApplicationRecord
   validates :title, presence: true
+  validates :author, presence: true
+  validates :image_caption, presence: true
+  validates :abstract, presence: true
+  validates :content, presence: true
 
   # Starting variants, this should be a sensible default since we know that it
   # is an image:
