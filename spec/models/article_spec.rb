@@ -28,19 +28,17 @@ RSpec.describe Article do
         expect(variants).to include(:thumb)
       end
 
-      # Additional spec for images that are validated as required.
-      # it 'is required' do
-      #   expect(article).to validate_attached_of(:image)
-      # end
+      it 'is required' do
+        expect(article).to validate_attached_of(:image)
+      end
 
       it 'must be a valid image file' do
         expect(article).to validate_content_type_of(:image).allowing(:jpg, :jpeg, :png)
       end
 
-      # Additional spec for images that have a size validation (1MB in this example).
-      # it 'must be of the right size (<= 1MB)' do
-      #   expect(article).to validate_size_of(:image).less_than_or_equal_to(1.megabyte)
-      # end
+      it 'must be of the right size (<= 1MB)' do
+        expect(article).to validate_size_of(:image).less_than_or_equal_to(1.megabyte)
+      end
     end
   end
 end

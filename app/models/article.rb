@@ -11,10 +11,7 @@ class Article < ApplicationRecord
     image.variant :thumb, resize_to_limit: [100, 100]
   end
 
-  # Starting validation for images, it should be a sensible default.
-  validates :image, content_type: %i[jpg jpeg png]
-  # Example with additional validations (presence and size)
-  # validates :image, attached: true, content_type: %i[jpg jpeg png], size: { less_than_or_equal_to: 1.megabyte }
+  validates :image, attached: true, content_type: %i[jpg jpeg png], size: { less_than_or_equal_to: 1.megabyte }
 
   # Returns nil if image is not attached or if it's file is not
   # persisted yet, or the attachment eitherwise.

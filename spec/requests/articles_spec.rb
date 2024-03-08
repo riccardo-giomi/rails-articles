@@ -28,17 +28,22 @@ RSpec.describe '/articles' do
     describe 'PATCH /update' do
       context 'with valid update attributes' do
         let(:valid_attributes) { attributes_for(:another_article) }
+        # Original image id needs to be passed or the image will be deleted
+        let(:patch_attributes) { valid_attributes.merge(image: article.image.signed_id) }
 
         it 'updates the requested article' do
-          patch article_url(article), params: { article: valid_attributes }
+          old_image_id = article.image.signed_id
+          patch article_url(article), params: { article: patch_attributes }
+
           article.reload
           attributes = article.slice(valid_attributes.keys).symbolize_keys
 
           expect(attributes).to eq(valid_attributes)
+          expect(article.image.signed_id).to eq(old_image_id)
         end
 
         it 'redirects to the article' do
-          patch article_url(article), params: { article: valid_attributes }
+          patch article_url(article), params: { article: patch_attributes }
           article.reload
           expect(response).to redirect_to(article_url(article))
         end
@@ -76,7 +81,9 @@ RSpec.describe '/articles' do
   end
 
   context 'with a valid new object' do
-    let(:valid_attributes) { attributes_for(:complete_article) }
+    let(:valid_attributes) do
+      attributes_for(:complete_article, image: fixture_file_upload('300x300.jpg', 'image/jpg'))
+    end
 
     describe 'POST /create' do
       it 'creates a new Article' do
