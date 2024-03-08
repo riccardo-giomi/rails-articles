@@ -60,7 +60,7 @@ div class="border-2 border-black dark:border-slate-600 p-2 mt-2"
         - unless controls.empty?
           div class="lg:sticky lg:top-1"
             - if controls.include?(:show)
-              = link_to 'Show article', article, class: 'mb-2 button', title: 'Show article'
+              = link_to 'Read article', article, class: 'mb-2 button', title: 'Read article'
             - if controls.include?(:edit)
               = link_to 'Edit article', edit_article_path(article), class: 'mb-2 button', title: 'Edit article'
             - if controls.include?(:destroy)
