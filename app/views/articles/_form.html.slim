@@ -1,6 +1,8 @@
 - # locals: (article:, controls: [])
 
 - content = capture do
+  div class="font-bold italic"
+    | All fields are mandatory, including the article's image.
   = form_with(model: article, class: 'contents') do |form|
     - if article.errors.any?
       div id="errors-explanation"
