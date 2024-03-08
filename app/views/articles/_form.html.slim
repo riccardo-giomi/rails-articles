@@ -31,7 +31,7 @@
     div class="my-3"
       = form.label :image
       / set is_required: to true for files with attached: true validations
-      = render 'application/form_file', form:, field: 'image', file: article.persisted_image, is_required: false
+      = render 'application/form_file', form:, field: 'image', file: article.persisted_image, is_required: true
 
     div class="my-3"
       = form.label :image_caption

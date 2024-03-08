@@ -13,10 +13,8 @@ RSpec.describe 'articles/edit' do
       assert_select 'textarea[name=?]', 'article[abstract]'
       assert_select 'textarea[name=?]', 'article[content]'
       # Single file attachment "image"
-      # To add or replace the file
+      # To replace the file
       assert_select 'input[name=?][type=?]', 'article[image]', 'file'
-      # To remove the file
-      assert_select 'input[name=?][type=?]', 'article[image]', 'checkbox'
 
       assert_select 'input[name=?]', 'article[image_caption]'
       assert_select 'input[name=?]', 'article[author]'
