@@ -11,11 +11,11 @@ FactoryBot.define do
     # Handy for specs with more than one record, specifically those specifying
     # update operations
     factory :another_article do
-      title { 'Title Value' }
-      abstract { 'Abstract Value' }
-      content { 'Content Value' }
-      image_caption { 'Image caption Value' }
-      author { 'Author Value' }
+      title { 'Another Title Value' }
+      abstract { 'Another Abstract Value' }
+      content { 'Another Content Value' }
+      image_caption { 'Another Image caption Value' }
+      author { 'Another Author Value' }
     end
 
     # Used to generate "models with valid attributes" in specs, e.g. for
