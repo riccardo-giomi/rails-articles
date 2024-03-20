@@ -31,6 +31,18 @@ for attribute in attributes
 -%>
         assert_select 'div', text: Regexp.new('true')
 <%
+  elsif attribute.type.in? %i[datetime date time timestamp]
+    type = attribute.type == :timestamp ? :datetime : attribute.type
+    expected_value = attribute.factory_value.try(:"to_#{type}")
+    expected_value = I18n.l(expected_value, format: :"template_#{type}")
+-%>
+        assert_select 'div', text: Regexp.new('<%= expected_value %>')
+<%
+  elsif attribute.extended_type == :title
+    attribute_value = attribute.factory_value.to_s
+-%>
+        assert_select 'div', html: Regexp.new('href=".*<%= ns_table_name%>\/\d+".*><%= attribute_value %>')
+<%
   else
 -%>
         assert_select 'div', text: Regexp.new('<%= attribute.factory_value.to_s %>')
