@@ -23,7 +23,7 @@ You will also need *[SQLite3](https://www.sqlite.org/)* and *libvips* (see
 
 ## Installation
 
-The following commands will donwload the app's code, download or update the
+The following commands will download the app's code, download or update the
 required Ruby Gems, and prepare a database for the application.
 
 ``` bash
@@ -37,7 +37,7 @@ There's an example Article that can be seeded in the database if you want:
 ``` bash
 bin/rails db:seed
 ```
-It inclused an example image that you can find in `public/example.image.jpg`,
+It includes an example image that you can find in `public/example.image.jpg`,
 generated with [Lorem Picsum](https://picsum.photos).
 
 
