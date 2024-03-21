@@ -27,8 +27,8 @@ The following commands will download the app's code, download or update the
 required Ruby Gems, and prepare a database for the application.
 
 ``` bash
-git clone https://github.com/riccardo-giomi/articles
-cd articles
+git clone https://github.com/riccardo-giomi/rails-articles
+cd rails-articles
 bundle
 bin/rails db:setup
 ```
