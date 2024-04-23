@@ -30,7 +30,7 @@ required Ruby Gems, and prepare a database for the application.
 git clone https://github.com/riccardo-giomi/rails-articles
 cd rails-articles
 bundle
-bin/rails db:setup
+bin/rails db:prepare
 ```
 
 There's an example Article that can be seeded in the database if you want:
